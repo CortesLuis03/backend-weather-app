@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SearchHistory;
 use App\Http\Controllers\Controller;
+use App\Models\SearchHistory;
 use Illuminate\Http\Request;
 
 class SearchHistoryController extends Controller
@@ -15,7 +15,8 @@ class SearchHistoryController extends Controller
      */
     public function index()
     {
-        //
+        $history = SearchHistory::with('city', 'city.country')->get();
+        return response()->json($history);
     }
 
     /**
@@ -37,19 +38,13 @@ class SearchHistoryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => ['required', 'max:255'],
-            'lat' => ['required', 'numeric'],
-            'lon' => ['required', 'numeric'],
-            'address' => ['required', 'max:255'],
-            'description' => ['required']
+            'city_id' => ['required', 'numeric'],
+            'timestamp' => ['required', 'numeric']
         ]);
 
         $history = new SearchHistory([
-            'name' => $request->input('name'),
-            'lat' => $request->input('lat'),
-            'lon' => $request->input('address'),
-            'address' => $request->input('address'),
-            'description' => $request->input('description')
+            'city_id' => $request->input('city_id'),
+            'timestamp_history' => $request->input('timestamp')
         ]);
 
         try {
@@ -108,11 +103,5 @@ class SearchHistoryController extends Controller
     public function destroy(SearchHistory $searchHistory)
     {
         //
-    }
-
-    public function getHistory()
-    {
-        $history = SearchHistory::get();
-        return response()->json($history);
     }
 }

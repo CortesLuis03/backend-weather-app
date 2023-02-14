@@ -15,7 +15,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        //
+        $countries = Countries::get();
+        return response()->json($countries);
     }
 
     /**

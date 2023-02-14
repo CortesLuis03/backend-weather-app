@@ -16,8 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('weather')->group(function(){
-    Route::get('/history', [\App\Http\Controllers\SearchHistoryController::class, 'getHistory']);
+    Route::get('/history', [\App\Http\Controllers\SearchHistoryController::class, 'index']);
     Route::post('/history/save',[App\Http\Controllers\SearchHistoryController::class, 'store']);
+});
+
+Route::prefix('city')->group(function(){
+    Route::get('/list', [App\Http\Controllers\CitiesController::class, 'index']);
+});
+
+Route::prefix('country')->group(function(){
+    Route::get('/list', [App\Http\Controllers\CountriesController::class, 'index']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

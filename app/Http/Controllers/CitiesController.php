@@ -15,7 +15,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        //
+        $cities = Cities::with('country')->get();
+        return response()->json($cities);
     }
 
     /**
