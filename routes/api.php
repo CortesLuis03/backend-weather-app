@@ -21,7 +21,7 @@ Route::prefix('weather')->group(function(){
 });
 
 Route::prefix('city')->group(function(){
-    Route::get('/list', [App\Http\Controllers\CitiesController::class, 'index']);
+    Route::get('/perCountry/{idCountry}', [App\Http\Controllers\CitiesController::class, 'index']);
 });
 
 Route::prefix('country')->group(function(){
