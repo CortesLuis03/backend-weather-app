@@ -57,7 +57,7 @@ class SearchHistoryController extends Controller
         }
 
 
-        return response('Insertion successful.', 200);
+        return response(['msg'=> 'Insertion successful.'], 200);
     }
 
     /**
