@@ -28,8 +28,15 @@ class CountriesSeeder extends Seeder
             ['id' => 9,  'name' =>  'Mexico',           'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
             ['id' => 10, 'name' =>  'Brazil',           'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
             ['id' => 11, 'name' =>  'Ukraine',          'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 12, 'name' =>  'Colombia',         'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 13, 'name' =>  'Spain',            'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 14, 'name' =>  'France',           'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
         ];
 
         DB::table('countries')->insert($countries);
+
+        $this->call([
+            CitiesSeeder::class
+        ]);
     }
 }
