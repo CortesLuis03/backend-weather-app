@@ -1,6 +1,6 @@
 ## About Project
 
-This project allows you to consult weather data by selecting the country and the required city, shows specific data, geolocation and search history.
+This BackEnd project allows you to consult weather data by selecting the country and the required city, shows specific data, geolocation and search history.
 
 ## Installation
 
@@ -10,7 +10,7 @@ This project allows you to consult weather data by selecting the country and the
 
 3. In the ```.env``` file, change the name of the database to one already created.
 
-4. Run the ```php artisan migrate``` command to create the tables required by the application.
+4. Run the ```php artisan migrate``` command to create the tables and database required by the application.
 
 5. Run the command ```php artisan db:seed --class=CountriesSeeder``` to insert default data into the 'cities' and 'countries' tables.
 
